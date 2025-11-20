@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Formspree</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .status {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste Formspree - Versão Simples</h1>
+    <p>Esta é uma versão de teste sem JavaScript para verificar se o Formspree está funcionando.</p>
+    
+    <form action="https://formspree.io/f/mzzoeqyy" method="POST">
+        <input type="hidden" name="_subject" value="Teste - Formspree">
+        <input type="hidden" name="_format" value="plain">
+        
+        <div class="form-group">
+            <label>Nome:</label>
+            <input type="text" name="name" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Mensagem:</label>
+            <textarea name="message" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit">Enviar (Teste Simples)</button>
+    </form>
+    
+    <hr>
+    
+    <h2>Versão com JavaScript (Fetch API)</h2>
+    <form id="test-form">
+        <input type="hidden" name="_subject" value="Teste JS - Formspree">
+        <input type="hidden" name="_format" value="plain">
+        
+        <div class="form-group">
+            <label>Nome:</label>
+            <input type="text" name="name" id="test-name" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" name="email" id="test-email" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Mensagem:</label>
+            <textarea name="message" id="test-message" rows="5" required></textarea>
+        </div>
+        
+        <button type="submit">Enviar (Teste JS)</button>
+    </form>
+    
+    <div id="test-status" class="status" style="display: none;"></div>
+    
+    <script>
+        document.getElementById('test-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const statusDiv = document.getElementById('test-status');
+            statusDiv.style.display = 'block';
+            statusDiv.className = 'status';
+            statusDiv.textContent = 'Enviando...';
+            
+            const formData = new FormData(this);
+            
+            try {
+                const response = await fetch('https://formspree.io/f/mzzoeqyy', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                console.log('Status:', response.status);
+                console.log('OK:', response.ok);
+                
+                const data = await response.text();
+                console.log('Response:', data);
+                
+                if (response.ok) {
+                    statusDiv.className = 'status success';
+                    statusDiv.textContent = '✅ Sucesso! Email enviado.';
+                    this.reset();
+                } else {
+                    statusDiv.className = 'status error';
+                    statusDiv.textContent = '❌ Erro: ' + response.status + ' - ' + data;
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                statusDiv.className = 'status error';
+                statusDiv.textContent = '❌ Erro de conexão: ' + error.message;
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
