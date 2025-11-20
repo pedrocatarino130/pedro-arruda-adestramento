@@ -2,10 +2,61 @@
 <html lang="pt-BR">
 
 <head>
+    <!-- Meta Tags Essenciais -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Landing Page - Pedro Arruda Adestramento">
-    <title>Pedro Arruda Adestramento</title>
+    <meta name="description" content="Descubra se seu cão precisa de adestramento profissional. Avaliação gratuita em 3 minutos com Pedro Arruda em Mato Grosso.">
+    
+    <!-- Título SEO-friendly -->
+    <title>Adestramento Canino Profissional | Pedro Arruda - MT</title>
+    
+    <!-- Favicon (usar logo AAC quando disponível) -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    
+    <!-- Open Graph Tags (Facebook, LinkedIn, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://casasdepet.com.br">
+    <meta property="og:title" content="Adestramento Canino Profissional | Pedro Arruda - MT">
+    <meta property="og:description" content="Descubra se seu cão precisa de adestramento profissional. Avaliação gratuita em 3 minutos com Pedro Arruda em Mato Grosso.">
+    <meta property="og:image" content="https://casasdepet.com.br/assets/images/og-image.jpg">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Pedro Arruda Adestramento">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://casasdepet.com.br">
+    <meta name="twitter:title" content="Adestramento Canino Profissional | Pedro Arruda - MT">
+    <meta name="twitter:description" content="Descubra se seu cão precisa de adestramento profissional. Avaliação gratuita em 3 minutos com Pedro Arruda em Mato Grosso.">
+    <meta name="twitter:image" content="https://casasdepet.com.br/assets/images/twitter-image.jpg">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração do Tema Customizado Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#2563eb',      // Azul primário (ajustar com Pedro)
+                        'brand-secondary': '#10b981',    // Verde secundário (ajustar com Pedro)
+                        'brand-accent': '#f59e0b',       // Laranja accent (ajustar com Pedro)
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Custom (mantido para compatibilidade) -->
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Google Analytics 4 -->
@@ -35,42 +86,70 @@
 </head>
 
 <body>
+    <!-- Estrutura Semântica HTML5 -->
+    <header class="bg-brand-primary text-white py-4">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl font-bold">Pedro Arruda Adestramento</h1>
+        </div>
+    </header>
+
     <main>
-        <h1>Pedro Arruda Adestramento</h1>
+        <!-- Hero Section -->
+        <section class="py-12 px-4">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-bold mb-4">Adestramento Canino Profissional</h2>
+                <p class="text-xl text-gray-600">Descubra se seu cão precisa de adestramento profissional</p>
+            </div>
+        </section>
 
         <!-- Formulário de Contato -->
-        <section class="contact-section">
-            <h2>Entre em Contato</h2>
-            <form id="contact-form" action="https://formspree.io/f/mzzoeqyy" method="POST">
-                <input type="hidden" name="_subject" value="Novo contato - Landing Page Adestramento">
-                <input type="hidden" name="_format" value="plain">
+        <section class="contact-section py-12 px-4 bg-gray-50">
+            <div class="container mx-auto max-w-2xl">
+                <h2 class="text-3xl font-bold mb-6 text-center">Entre em Contato</h2>
+                <form id="contact-form" action="https://formspree.io/f/mzzoeqyy" method="POST" class="bg-white p-6 rounded-lg shadow-lg">
+                    <input type="hidden" name="_subject" value="Novo contato - Landing Page Adestramento">
+                    <input type="hidden" name="_format" value="plain">
 
-                <div class="form-group">
-                    <label for="name">Nome *</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
+                    <div class="form-group mb-4">
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nome *</label>
+                        <input type="text" id="name" name="name" required 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-primary focus:border-transparent">
+                    </div>
 
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
+                    <div class="form-group mb-4">
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                        <input type="email" id="email" name="email" required 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-primary focus:border-transparent">
+                    </div>
 
-                <div class="form-group">
-                    <label for="phone">Telefone</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
+                    <div class="form-group mb-4">
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Telefone</label>
+                        <input type="tel" id="phone" name="phone" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-primary focus:border-transparent">
+                    </div>
 
-                <div class="form-group">
-                    <label for="message">Mensagem *</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
+                    <div class="form-group mb-4">
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Mensagem *</label>
+                        <textarea id="message" name="message" rows="5" required 
+                                  class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-brand-primary focus:border-transparent"></textarea>
+                    </div>
 
-                <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                    <button type="submit" class="submit-btn w-full bg-brand-primary text-white py-3 px-6 rounded-md font-semibold hover:bg-blue-700 transition-colors">
+                        Enviar Mensagem
+                    </button>
 
-                <div id="form-status" class="form-status"></div>
-            </form>
+                    <div id="form-status" class="form-status mt-4"></div>
+                </form>
+            </div>
         </section>
     </main>
+
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2024 Pedro Arruda Adestramento. Todos os direitos reservados.</p>
+            <p class="mt-2 text-sm text-gray-400">Mato Grosso, Brasil</p>
+        </div>
+    </footer>
 
     <script src="assets/js/main.js"></script>
 </body>
