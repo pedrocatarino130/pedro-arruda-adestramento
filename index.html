@@ -6,10 +6,54 @@
     <meta name="description" content="Landing Page - Pedro Arruda Adestramento">
     <title>Pedro Arruda Adestramento</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
 </head>
 <body>
-    <!-- Conteúdo será adicionado nas próximas sprints -->
-    <h1>Pedro Arruda Adestramento</h1>
+    <main>
+        <h1>Pedro Arruda Adestramento</h1>
+        
+        <!-- Formulário de Contato -->
+        <section class="contact-section">
+            <h2>Entre em Contato</h2>
+            <form id="contact-form" action="https://formspree.io/f/mzzoeqyy" method="POST">
+                <input type="hidden" name="_subject" value="Novo contato - Landing Page Adestramento">
+                <input type="hidden" name="_format" value="plain">
+                
+                <div class="form-group">
+                    <label for="name">Nome *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensagem *</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                
+                <div id="form-status" class="form-status"></div>
+            </form>
+        </section>
+    </main>
+    
     <script src="assets/js/main.js"></script>
 </body>
 </html>
